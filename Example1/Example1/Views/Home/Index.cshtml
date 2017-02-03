@@ -1,0 +1,68 @@
+﻿
+<div class="row">
+    <div class="col-md-4">
+        <button id="json">Get GetJson call</button>
+        <div id="jsondisplay"></div>
+        <div id="jsondisplay2"></div>
+        <div id="jsondisplay3"></div>
+    </div>
+    <div class="col-md-4">
+        <button id="ajax">Get Ajax Call</button>
+        <div id="ajaxdisplay"></div>
+        <div id="ajaxdisplay2"></div>
+        <div id="ajaxdisplay3"></div>
+    </div>
+    <div class="col-md-4">
+        <div class="col-md-4">
+            <button id="ajaxID">Get Ajax Call only String</button>
+            <div id="ajaxIDdisplay"></div>
+        </div>
+    </div>
+</div>
+@section scripts {
+
+<script type="text/javascript">
+    $('#json').click(function(){
+        alert('json');
+        $.getJSON("http://localhost:63951//api/values",
+         function (data) {
+             for (i = 0; i < data.length; i++) {
+                 $('#jsondisplay').html(data[0].Name);
+                 $('#jsondisplay2').html(data[0].Amount);
+                 $('#jsondisplay3').html(data[0].DateCreated);
+             }
+          });
+    });
+
+    $('#ajax').click(function(){
+        alert('ajax');
+         $.ajax({
+             type: "GET",
+             dataType: "json",
+             url: "http://localhost:63951//api/values",
+             success: function (data) {
+                 for (i = 0; i < data.length; i++) {
+                     $('#ajaxdisplay').html(data[0].Name);
+                     $('#ajaxdisplay2').html(data[0].Amount);
+                     $('#ajaxdisplay3').html(data[0].DateCreated);
+                 }
+                 
+             }
+         });
+    });
+
+    $('#ajaxID').click(function () {
+        alert('ajaxID');
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "http://localhost:63951//api/values/10",
+            success: function (data) {
+                $('#ajaxIDdisplay').html(data);
+
+            }
+        });
+    });
+
+</script>
+    }
