@@ -22,7 +22,7 @@ namespace Example1.Controllers
         public string Get(int id)
         {
             //var stringbla = string.Format("{ \"Name\" : \"carel\" }"
-            return "carel";
+            return "[{\"text\": \"Daar\",\"nodetype\": \"Action\",\"id\": \"2\",\"nodes\": [{\"text\": \"Step2\",\"nodetype\": \"ActionStep\",\"id\": \"3\",\"nodes\": [{\"text\": \"TestDocument\",\"nodetype\": \"DocumentType\",\"id\": \"1\"}]},{\"text\": \"Step3\",\"nodetype\": \"ActionStep\",\"id\": \"4\"}]}]";
         }
 
         // POST api/values

@@ -58,6 +58,7 @@
             dataType: "json",
             url: "http://localhost:63951//api/values/10",
             success: function (data) {
+                var jsonString = $.parseJSON(data);
                 $('#ajaxIDdisplay').html(data);
 
             }
